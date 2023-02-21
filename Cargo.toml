@@ -1,0 +1,21 @@
+[package]
+name = "tunein"
+version = "0.1.0"
+edition = "2021"
+repository = "https://github.com/tsirysndr/tunein"
+license = "MIT"
+readme = "README.md"
+authors = ["Tsiry Sandratraina <tsiry.sndr@aol.com>"]
+categories = ["api-bindings"]
+keywords = ["radio", "client", "tokio"]
+description = "A simple client to fetch radio stations from TuneIn"
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow = "1.0.69"
+m3u = "1.0.0"
+pls = "0.2.2"
+serde = "1.0.152"
+serde_json = "1.0.93"
+surf = { version = "2.3.2", features = ["h1-client-rustls"], default-features = false}
+tokio = { version = "1.24.2", features = ["tokio-macros", "macros", "rt", "rt-multi-thread"] }
