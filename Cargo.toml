@@ -7,7 +7,7 @@ license = "MIT"
 readme = "README.md"
 authors = ["Tsiry Sandratraina <tsiry.sndr@aol.com>"]
 categories = ["api-bindings"]
-keywords = ["radio", "client", "tokio"]
+keywords = ["radio", "client", "tokio", "web", "http", "surf", "m3u", "pls", "json", "tunein"]
 description = "A simple client to fetch radio stations from TuneIn"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
