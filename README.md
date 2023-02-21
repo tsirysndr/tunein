@@ -22,7 +22,7 @@
 
 This is a Rust client library for the [TuneIn Radio](https://tunein.com/) API.
 
-## Installation
+## 🚚 Installation
 
 Add the following to your Cargo.toml:
 
@@ -31,7 +31,7 @@ Add the following to your Cargo.toml:
 tunein = "0.1"
 ```
 
-## Usage
+## 🚀 Usage
 
 Search for a station:
 
@@ -49,7 +49,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 See the [examples](./examples) directory for more examples.
 
-## Features
+## ✨ Features
 
 - [x] Search
 - [x] Browse categories
