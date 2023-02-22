@@ -1,7 +1,10 @@
 use std::time::Duration;
 
 use surf::{Client, Config, Url};
-use types::{Category, CategoryDetails, CategoryResponse, CategoryTrait, SearchResponse, Station};
+use types::{
+    Category, CategoryDetails, CategoryResponse, CategoryTrait, SearchResponse, Station,
+    StationLinkDetails, StationResponse,
+};
 
 use crate::types::{CategoriesResponse, SearchResult};
 
@@ -61,6 +64,15 @@ impl TuneInClient {
             .client
             .get("?render=json")
             .recv_json::<CategoriesResponse>()
+            .await?;
+        Ok(response.body)
+    }
+
+    pub async fn get_station(&self, id: &str) -> Result<Vec<StationLinkDetails>, surf::Error> {
+        let response = self
+            .client
+            .get(format!("Tune.ashx?id={}&render=json", id))
+            .recv_json::<StationResponse>()
             .await?;
         Ok(response.body)
     }

@@ -81,7 +81,8 @@ pub struct CategoryDetails {
 #[derive(Debug, Deserialize)]
 pub struct Head {
     pub status: String,
-    pub title: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub title: Option<String>,
 }
 
 #[derive(Debug, Deserialize)]
@@ -172,4 +173,28 @@ pub struct Station {
     pub r#type: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub children: Option<Vec<Box<Station>>>,
+}
+
+#[derive(Debug, Serialize, Deserialize)]
+pub struct StationLinkDetails {
+    pub bitrate: u32,
+    pub element: String,
+    pub is_ad_clipped_content_enabled: String,
+    pub is_direct: bool,
+    pub is_hls_advanced: String,
+    pub live_seek_stream: String,
+    pub media_type: String,
+    pub player_height: u32,
+    pub player_width: u32,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub playlist_type: Option<String>,
+    pub position: u32,
+    pub reliability: u32,
+    pub url: String,
+}
+
+#[derive(Debug, Deserialize)]
+pub struct StationResponse {
+    pub head: Head,
+    pub body: Vec<StationLinkDetails>,
 }

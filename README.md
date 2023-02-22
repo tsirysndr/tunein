@@ -55,7 +55,7 @@ See the [examples](./examples) directory for more examples.
 - [x] Browse categories
 - [x] Browse stations by category
 
-## License
+## 📝 License
 MIT
 
 ## Contributing
