@@ -63,16 +63,19 @@ impl FromStr for Category {
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct CategoryDetails {
-    pub r#type: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub r#type: Option<String>,
     pub text: String,
-    #[serde(rename = "URL")]
-    pub url: String,
+    #[serde(rename = "URL", skip_serializing_if = "Option::is_none")]
+    pub url: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub guide_id: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub key: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub element: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub children: Option<Vec<Box<SearchResult>>>,
 }
 
 #[derive(Debug, Deserialize)]
