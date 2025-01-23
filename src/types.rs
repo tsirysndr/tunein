@@ -61,7 +61,7 @@ impl FromStr for Category {
     }
 }
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct CategoryDetails {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub r#type: Option<String>,
@@ -78,26 +78,26 @@ pub struct CategoryDetails {
     pub children: Option<Vec<Box<SearchResult>>>,
 }
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Deserialize, Clone)]
 pub struct Head {
     pub status: String,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub title: Option<String>,
 }
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Deserialize, Clone)]
 pub struct CategoriesResponse {
     pub head: Head,
     pub body: Vec<CategoryDetails>,
 }
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Deserialize, Clone)]
 pub struct CategoryResponse {
     pub head: Head,
     pub body: Vec<Station>,
 }
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct SearchResult {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub r#type: Option<String>,
@@ -133,13 +133,13 @@ pub struct SearchResult {
     pub children: Option<Vec<Box<SearchResult>>>,
 }
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Deserialize, Clone)]
 pub struct SearchResponse {
     pub head: Head,
     pub body: Vec<SearchResult>,
 }
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct Station {
     #[serde(rename = "URL", skip_serializing_if = "Option::is_none")]
     pub url: Option<String>,
@@ -175,7 +175,7 @@ pub struct Station {
     pub children: Option<Vec<Box<Station>>>,
 }
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct StationLinkDetails {
     pub bitrate: u32,
     pub element: String,
@@ -193,7 +193,7 @@ pub struct StationLinkDetails {
     pub url: String,
 }
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Deserialize, Clone)]
 pub struct StationResponse {
     pub head: Head,
     pub body: Vec<StationLinkDetails>,
