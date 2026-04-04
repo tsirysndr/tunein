@@ -179,7 +179,8 @@ pub struct Station {
 pub struct StationLinkDetails {
     pub bitrate: u32,
     pub element: String,
-    pub is_ad_clipped_content_enabled: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub is_ad_clipped_content_enabled: Option<String>,
     pub is_direct: bool,
     pub is_hls_advanced: String,
     pub live_seek_stream: String,
